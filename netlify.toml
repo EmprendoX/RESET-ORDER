@@ -1,0 +1,31 @@
+# Config para Netlify cuando despliega el monorepo RESET-ORDER.
+# El host real (Next.js 15) vive en RESETE-HUB/. El build orquesta también
+# RESET-EDU (submódulo, Vite SPA bajo /edu/) y mobile/ (PWA bajo /binaural/).
+
+[build]
+  base = "RESETE-HUB"
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+  NETLIFY_NEXT_SKEW_PROTECTION = "true"
+
+# Headers de seguridad (mismos que el netlify.toml standalone de RESETE-HUB).
+[[headers]]
+  for = "/hub/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "/mod/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
