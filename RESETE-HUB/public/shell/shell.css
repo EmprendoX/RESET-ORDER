@@ -1,0 +1,169 @@
+/* ==========================================================================
+   THE RESETE ORDER — Shell global persistente
+   Top-bar + bottom-tabs compartidos entre las 3 apps del dominio.
+   Extracto de mobile/styles.css (líneas 6-237, 879-929) + ajustes.
+   ========================================================================== */
+
+:root {
+  --reset-bg-0: #000000;
+  --reset-border: rgba(255, 255, 255, 0.08);
+  --reset-text: #FFFFFF;
+  --reset-gold: #FF1E1E;
+  --reset-gold-2: #FF4D4D;
+  --reset-blue: #1E4DFF;
+
+  --reset-header-h: 72px;
+  --reset-tabs-h: 70px;
+
+  --reset-safe-top: env(safe-area-inset-top, 0px);
+  --reset-safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* El shell vive en su propio root y nunca toca estilos de la app subyacente.
+   Las apps son responsables de añadir padding-top/bottom para no quedar
+   tapadas (se inyecta vía .reset-shell-pad-body abajo). */
+
+#reset-shell-root,
+#reset-shell-root * {
+  box-sizing: border-box;
+}
+
+#reset-shell-root {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--reset-text);
+}
+
+/* Top-bar fija */
+.reset-topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: calc(var(--reset-safe-top) + 12px) 18px 12px;
+  background: linear-gradient(180deg, rgba(11, 13, 18, 0.92), rgba(11, 13, 18, 0.75));
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--reset-border);
+  min-height: var(--reset-header-h);
+}
+
+.reset-topbar__logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(255, 30, 30, 0.3));
+  flex-shrink: 0;
+}
+
+.reset-topbar__titles {
+  flex: 1;
+  min-width: 0;
+}
+
+.reset-topbar__title {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--reset-text);
+}
+
+.reset-topbar__title span {
+  background: linear-gradient(135deg, var(--reset-gold-2), var(--reset-gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Bottom tab bar fija */
+.reset-tabs {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9000;
+  display: flex;
+  align-items: stretch;
+  padding-bottom: var(--reset-safe-bottom);
+  background: linear-gradient(180deg, var(--reset-blue) 0%, #1538d9 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.25);
+  font-family: 'DM Sans', sans-serif;
+}
+
+.reset-tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 8px 4px 10px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 11px;
+  font-weight: 500;
+  min-height: var(--reset-tabs-h);
+  transition: color 0.15s ease;
+  position: relative;
+  text-decoration: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.reset-tab.is-active {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.reset-tab.is-active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 3px;
+  border-radius: 0 0 3px 3px;
+  background: #ffffff;
+}
+
+.reset-tab svg {
+  opacity: 0.9;
+}
+
+.reset-tab.is-active svg {
+  opacity: 1;
+}
+
+.reset-tab:active {
+  transform: scale(0.95);
+}
+
+/* Padding utilitario que las apps añaden a su body/root para no quedar tapadas. */
+.reset-shell-pad {
+  padding-top: var(--reset-header-h);
+  padding-bottom: calc(var(--reset-tabs-h) + var(--reset-safe-bottom));
+}
+
+/* Cuando el shell global está montado, ocultar el chrome interno duplicado
+   de la app mobile (mobile/index.html mantiene su .topbar/.tabs para uso
+   standalone, pero bajo /binaural/ el shell del host las reemplaza). */
+.reset-shell-pad .topbar,
+.reset-shell-pad .tabs {
+  display: none !important;
+}
+.reset-shell-pad .main {
+  padding-bottom: 24px;
+}

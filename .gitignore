@@ -1,0 +1,45 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Dependencies
+**/node_modules
+
+# Env / secrets
+.env
+.env.local
+.env.*.local
+**/.env
+**/.env.local
+**/.env.*.local
+
+# Editor / agent local state
+.vscode/
+.idea/
+.claude/
+**/.claude/
+
+# Build artefacts — apps
+RESETE-HUB/.next/
+RESETE-HUB/out/
+RESETE-HUB/tsconfig.tsbuildinfo
+RESET-EDU/dist/
+RESET-EDU/dist-ssr/
+RESET-EDU/tsconfig.app.tsbuildinfo
+RESET-EDU/tsconfig.node.tsbuildinfo
+mobile/docs/
+
+# Build artefacts — host integra subapps en runtime (regenerados por build-all.mjs)
+RESETE-HUB/public/edu/
+RESETE-HUB/public/binaural/
+
+# Netlify / Vercel
+**/.netlify
+**/.vercel
