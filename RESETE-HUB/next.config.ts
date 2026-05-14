@@ -11,6 +11,10 @@ const supabaseHost = (() => {
 
 const nextConfig: NextConfig = {
   trailingSlash: true,
+  // Evita que Next bundlée isomorphic-dompurify (su dep html-encoding-sniffer
+  // requiere @exodus/bytes que es ESM; al bundlear da ERR_REQUIRE_ESM en el
+  // serverless de Netlify). Marcado external se carga con node_modules normales.
+  serverExternalPackages: ["isomorphic-dompurify"],
   async rewrites() {
     return [
       // Next.js no resuelve index.html automáticamente para subcarpetas en /public.
