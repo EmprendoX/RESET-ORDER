@@ -11,6 +11,11 @@
   NODE_VERSION = "22"
   NETLIFY_NEXT_SKEW_PROTECTION = "true"
 
+# Plugin oficial de Netlify para Next.js (App Router, server components, routes).
+# Sin esto el deploy sube .next/ pero no sabe cómo enrutar → 404.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
 # Headers de seguridad (mismos que el netlify.toml standalone de RESETE-HUB).
 [[headers]]
   for = "/hub/*"
