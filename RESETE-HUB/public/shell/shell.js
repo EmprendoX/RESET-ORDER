@@ -12,6 +12,13 @@
 
   var TABS = [
     {
+      id: 'inicio',
+      label: 'Inicio',
+      href: '/inicio',
+      match: function (p) { return p === '/inicio' || p.indexOf('/inicio/') === 0; },
+      svg: '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M3 11l9-7 9 7M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+    },
+    {
       id: 'binaural',
       label: 'Binaural',
       href: '/binaural/',
