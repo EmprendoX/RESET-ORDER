@@ -45,17 +45,22 @@ export async function HubNav() {
         </Link>
         <nav className="flex flex-wrap items-center gap-2 text-sm">
           <Link className="nav-link" href="/hub">Inicio</Link>
-          <Link className="nav-link" href="/hub/spaces">Espacios</Link>
-          <Link className="nav-link" href="/hub/resources">Recursos</Link>
           <Link className="nav-link" href="/hub/challenges">Retos</Link>
           <Link className="nav-link" href="/hub/events">Eventos</Link>
           <Link className="nav-link" href="/hub/notifications">Avisos</Link>
-          {isMod ? (
-            <Link className="nav-link" href="/mod">Moderación</Link>
-          ) : null}
-          {isAdm ? (
-            <Link className="nav-link" href="/admin">Admin</Link>
-          ) : null}
+          <details className="nav-more">
+            <summary className="nav-link">Más ▾</summary>
+            <div className="nav-more__panel">
+              <Link className="nav-link" href="/hub/spaces">Espacios</Link>
+              <Link className="nav-link" href="/hub/resources">Recursos</Link>
+              {isMod ? (
+                <Link className="nav-link" href="/mod">Moderación</Link>
+              ) : null}
+              {isAdm ? (
+                <Link className="nav-link" href="/admin">Admin</Link>
+              ) : null}
+            </div>
+          </details>
         </nav>
         <div className="flex items-center gap-2">
           <Link

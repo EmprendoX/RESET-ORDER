@@ -1,6 +1,7 @@
 -- Seed espacios y reglas (ejecutar tras migraciones, p. ej. `supabase db reset` o SQL editor)
 insert into public.spaces (name, slug, description, only_admin_posts)
 values
+  ('General', 'general', 'Conversación general de la comunidad — comparte lo que quieras.', false),
   ('Bienvenida', 'bienvenida', 'Mensajes de bienvenida y orientación inicial.', false),
   ('Presentaciones', 'presentaciones', 'Cuéntanos quién eres y qué buscas en RESET-ORDER.', false),
   ('Guía para empezar', 'guia-para-empezar', 'Pasos y hábitos sugeridos para entrar en ritmo.', false),

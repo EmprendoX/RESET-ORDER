@@ -50,7 +50,7 @@ export function CreatePostForm({
   return (
     <form onSubmit={onSubmit} className="space-y-4">
       <div className="space-y-1">
-        <Label htmlFor="spaceId">Espacio</Label>
+        <Label htmlFor="spaceId">Espacio (opcional)</Label>
         <select
           id="spaceId"
           name="spaceId"

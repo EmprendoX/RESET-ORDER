@@ -54,6 +54,10 @@ export default async function HubHomePage({
   const spaceMap = Object.fromEntries((spaces ?? []).map((s) => [s.id, s]));
   const authorMap = Object.fromEntries((authors ?? []).map((a) => [a.id, a]));
 
+  // Publicar fácil: por defecto al espacio "General" (si existe); si no, sin preseleccionar.
+  const generalId = (spaces ?? []).find((s) => s.slug === "general")?.id as string | undefined;
+  const createHref = generalId ? `/hub/create?space=${generalId}` : "/hub/create";
+
   return (
     <div className="space-y-6">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
@@ -75,6 +79,18 @@ export default async function HubHomePage({
           </Button>
         </form>
       </div>
+
+      {canPost ? (
+        <Card className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="font-semibold">¿Qué quieres compartir hoy?</p>
+            <p className="text-sm text-[var(--text-secondary)]">
+              Publica en General o, si quieres, elige un espacio.
+            </p>
+          </div>
+          <Button href={createHref}>Comparte algo</Button>
+        </Card>
+      ) : null}
 
       {!canPost ? (
         <Card className="border-[rgba(255,30,30,0.3)] bg-[var(--accent-soft)] text-sm text-[var(--text)]">
