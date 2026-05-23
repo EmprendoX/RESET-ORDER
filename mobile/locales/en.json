@@ -34,6 +34,18 @@
   "error_audio": "Error starting audio",
   "tap_to_play": "Tap again to play",
 
+  "audios_hub_title": "Audios",
+  "audios_hub_sub": "Choose a category.",
+  "audio_cat_afirmaciones": "Affirmations",
+  "audio_cat_binaural": "Binaural",
+  "audio_cat_sleep": "Sleep Sounds",
+  "audio_cat_hipnosis": "Hypnosis",
+  "audio_cat_visualizacion": "Guided Visualization",
+  "audio_cat_meditacion": "Meditation",
+  "badge_soon": "Coming soon",
+  "soon_sub": "This section will be available very soon.",
+  "back": "Back",
+
   "audios_title": "Affirmation audios",
   "audios_sub": "Choose a track to begin.",
   "no_tracks": "No audios available",

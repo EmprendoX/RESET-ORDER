@@ -16,7 +16,23 @@ const STORAGE_KEYS = {
 const DEFAULT_SETTINGS = {
   programId: null,
   binauralVolume: 50,
-  activeView: 'binaural'
+  activeView: 'audios'
+};
+
+// Mapa hash → vista interna. Las categorías sin contenido apuntan a la vista
+// 'soon' (placeholder) con su clave i18n de título.
+const HASH_ROUTES = {
+  audios: { view: 'audios' },
+  afirmaciones: { view: 'afirmaciones' },
+  binaural: { view: 'binaural' },
+  sleep: { view: 'soon', titleKey: 'audio_cat_sleep' },
+  hipnosis: { view: 'soon', titleKey: 'audio_cat_hipnosis' },
+  visualizacion: { view: 'soon', titleKey: 'audio_cat_visualizacion' },
+  meditacion: { view: 'soon', titleKey: 'audio_cat_meditacion' },
+  courses: { view: 'courses' },
+  'master-ai': { view: 'master-ai' },
+  community: { view: 'community' },
+  settings: { view: 'settings' }
 };
 
 const DEFAULT_AUDIO_SETTINGS = {
@@ -65,13 +81,16 @@ function cacheDom() {
   // Tabs
   els.tabs = $$('.tab');
   els.views = {
+    audios: $('#view-audios-hub'),
+    afirmaciones: $('#view-afirmaciones'),
     binaural: $('#view-binaural'),
-    audios: $('#view-audios'),
+    soon: $('#view-soon'),
     courses: $('#view-courses'),
     'master-ai': $('#view-master-ai'),
     community: $('#view-community'),
     settings: $('#view-settings')
   };
+  els.soonTitle = $('#soonTitle');
 
   // Binaural
   els.programSelect = $('#programSelect');
@@ -271,9 +290,34 @@ function setActiveView(name) {
 function bindTabs() {
   els.tabs.forEach((tab) => {
     tab.addEventListener('click', () => {
-      setActiveView(tab.dataset.view);
+      // Navegar por hash para que el routing y el shell global se mantengan
+      // sincronizados (hashchange → applyRoute).
+      location.hash = '#' + tab.dataset.view;
     });
   });
+}
+
+// Hub de Audios: cada cuadro navega a su categoría; los botones "Volver"
+// regresan al hub. La navegación es por hash (hashchange → applyRoute).
+function bindAudioHub() {
+  $$('.audio-hub-card').forEach((card) => {
+    card.addEventListener('click', () => {
+      const go = card.dataset.go;
+      if (go) location.hash = '#' + go;
+    });
+  });
+  $$('[data-back]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      location.hash = '#audios';
+    });
+  });
+}
+
+function setSoonTitle(key) {
+  if (!els.soonTitle || !key) return;
+  // Asignar data-i18n para que applyTranslations() reaccione a cambios de idioma.
+  els.soonTitle.dataset.i18n = key;
+  els.soonTitle.textContent = t(key, els.soonTitle.textContent);
 }
 
 // ===========================================================================
@@ -1042,24 +1086,28 @@ async function boot() {
   // Master AI (frontend-only demo chat)
   initMasterAI();
 
-  // Tabs
+  // Tabs + hub
   bindTabs();
+  bindAudioHub();
   // Sincronizar vista con el hash de la URL para que el shell global pueda
   // enlazar a /binaural/#audios, /binaural/#binaural, etc. Cuando el path es
-  // /binaural y el hash está vacío, la vista canónica es "binaural" — NO
-  // restaurar la última vista guardada en localStorage, porque entonces tocar
-  // el tab "Binaural" desde "Audios" no cambia nada (mismo path, hash vacío).
-  const VALID_VIEWS = ['binaural', 'audios', 'courses', 'master-ai', 'community', 'settings'];
+  // /binaural y el hash está vacío, la vista canónica es el hub "audios".
   const isUnderBinauralPath = location.pathname.indexOf('/binaural') === 0;
-  function viewFromHash() {
+  function routeFromHash() {
     const h = (location.hash || '').replace(/^#/, '');
-    if (VALID_VIEWS.indexOf(h) >= 0) return h;
-    // Hash vacío o inválido: si estamos servidos bajo /binaural/, la vista
-    // canónica es 'binaural'. Si no (modo standalone), usar la persistida.
-    return isUnderBinauralPath ? 'binaural' : (state.settings.activeView || 'binaural');
+    if (HASH_ROUTES[h]) return HASH_ROUTES[h];
+    // Hash vacío o inválido: bajo /binaural el landing canónico es el hub
+    // 'audios'. En standalone, restaurar la vista persistida.
+    const fallback = isUnderBinauralPath ? 'audios' : (state.settings.activeView || 'audios');
+    return HASH_ROUTES[fallback] || HASH_ROUTES.audios;
   }
-  setActiveView(viewFromHash());
-  window.addEventListener('hashchange', () => setActiveView(viewFromHash()));
+  function applyRoute() {
+    const route = routeFromHash();
+    if (route.view === 'soon') setSoonTitle(route.titleKey);
+    setActiveView(route.view);
+  }
+  applyRoute();
+  window.addEventListener('hashchange', applyRoute);
 
   // Reveal app
   els.app.hidden = false;

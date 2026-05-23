@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { GraduationCap, Waves, Headphones, Users } from "lucide-react";
+import { GraduationCap, Headphones, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
@@ -41,22 +41,12 @@ export default function HomePage() {
           </Card>
         </a>
 
-        <a href="/binaural/" className="group block focus:outline-none">
-          <Card className={cardClass}>
-            <Waves className="h-7 w-7 shrink-0 text-[var(--brand-red)]" aria-hidden />
-            <div>
-              <p className="text-lg font-semibold">Binaural</p>
-              <p className="text-sm text-[var(--text-secondary)]">Sonidos para enfocarte.</p>
-            </div>
-          </Card>
-        </a>
-
         <a href="/binaural/#audios" className="group block focus:outline-none">
           <Card className={cardClass}>
             <Headphones className="h-7 w-7 shrink-0 text-[var(--brand-red)]" aria-hidden />
             <div>
               <p className="text-lg font-semibold">Audios</p>
-              <p className="text-sm text-[var(--text-secondary)]">Tu biblioteca de sonido.</p>
+              <p className="text-sm text-[var(--text-secondary)]">Afirmaciones, binaural y más.</p>
             </div>
           </Card>
         </a>
