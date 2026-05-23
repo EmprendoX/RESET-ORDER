@@ -34,6 +34,18 @@
   "error_audio": "Error al iniciar audio",
   "tap_to_play": "Toca de nuevo para reproducir",
 
+  "audios_hub_title": "Audios",
+  "audios_hub_sub": "Elige una categoría.",
+  "audio_cat_afirmaciones": "Afirmaciones",
+  "audio_cat_binaural": "Binaural",
+  "audio_cat_sleep": "Sleep Sounds",
+  "audio_cat_hipnosis": "Hipnosis",
+  "audio_cat_visualizacion": "Visualización guiada",
+  "audio_cat_meditacion": "Meditación",
+  "badge_soon": "Próximamente",
+  "soon_sub": "Esta sección estará disponible muy pronto.",
+  "back": "Volver",
+
   "audios_title": "Audios de afirmaciones",
   "audios_sub": "Elige una pista para comenzar.",
   "no_tracks": "No hay audios disponibles",

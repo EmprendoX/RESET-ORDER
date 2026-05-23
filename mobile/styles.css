@@ -1504,6 +1504,105 @@ a { color: inherit; }
 }
 
 /* --------------------------------------------------------------------------
+   Audios — hub de categorías (6 cuadros) + placeholder "Próximamente"
+   -------------------------------------------------------------------------- */
+.audio-hub-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.audio-hub-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 18px 16px;
+  min-height: 118px;
+  background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.08s ease, border-color 0.15s ease, background 0.15s ease;
+}
+.audio-hub-card:active { transform: scale(0.98); }
+.audio-hub-card:hover { border-color: var(--border-strong); }
+.audio-hub-card__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--gold-dim);
+  color: var(--gold);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.audio-hub-card__name {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+.audio-hub-card__badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 3px 8px;
+  border-radius: 999px;
+  color: var(--gold);
+  background: var(--gold-dim);
+  border: 1px solid var(--border);
+}
+.audio-hub-card--soon .audio-hub-card__icon { opacity: 0.72; }
+
+@media (min-width: 520px) {
+  .audio-hub-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Botón "Volver" en encabezados de subvista */
+.section-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 12px;
+  padding: 6px 12px 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg-2);
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.08s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.section-back:hover { border-color: var(--border-strong); color: var(--text); }
+.section-back:active { transform: scale(0.97); }
+
+/* Placeholder "Próximamente" */
+.soon-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+  padding: 44px 24px;
+}
+.soon-card__icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  background: var(--gold-dim);
+  color: var(--gold);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --------------------------------------------------------------------------
    Courses
    -------------------------------------------------------------------------- */
 

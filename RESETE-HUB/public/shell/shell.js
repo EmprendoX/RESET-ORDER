@@ -19,17 +19,10 @@
       svg: '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M3 11l9-7 9 7M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>'
     },
     {
-      id: 'binaural',
-      label: 'Binaural',
-      href: '/binaural/',
-      match: function (p) { return p === '/binaural' || (p.indexOf('/binaural/') === 0 && p.indexOf('#audios') === -1 && !/#audios$/.test(location.hash)); },
-      svg: '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M3 12h2M7 7v10M11 4v16M15 8v8M19 11v2M21 12h-2" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>'
-    },
-    {
       id: 'audios',
       label: 'Audios',
       href: '/binaural/#audios',
-      match: function () { return location.pathname.indexOf('/binaural') === 0 && location.hash === '#audios'; },
+      match: function (p) { return p.indexOf('/binaural') === 0; },
       svg: '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 14v-2a8 8 0 0 1 16 0v2M4 14a2 2 0 0 1 2-2h1v6H6a2 2 0 0 1-2-2v-2zm16 0a2 2 0 0 0-2-2h-1v6h1a2 2 0 0 0 2-2v-2z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/></svg>'
     },
     {

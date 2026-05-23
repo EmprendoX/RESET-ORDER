@@ -43,9 +43,69 @@
     <!-- ============ MAIN (tab views) ============ -->
     <main class="main">
 
-      <!-- ========== BINAURAL TAB ========== -->
-      <section class="view view--binaural is-active" id="view-binaural" role="tabpanel" aria-labelledby="tab-binaural">
+      <!-- ========== AUDIOS HUB (6 categorías) ========== -->
+      <section class="view view--audios-hub is-active" id="view-audios-hub" role="tabpanel" aria-labelledby="tab-audios">
         <div class="section-head">
+          <h2 data-i18n="audios_hub_title">Audios</h2>
+          <p class="muted" data-i18n="audios_hub_sub">Elige una categoría.</p>
+        </div>
+
+        <div class="audio-hub-grid" role="group" aria-label="Categorías de audio">
+          <button class="audio-hub-card" type="button" data-go="afirmaciones">
+            <span class="audio-hub-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24"><path d="M9 18V5l12-2v13" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6" cy="18" r="3" stroke="currentColor" stroke-width="2" fill="none"/><circle cx="18" cy="16" r="3" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+            </span>
+            <span class="audio-hub-card__name" data-i18n="audio_cat_afirmaciones">Afirmaciones</span>
+          </button>
+
+          <button class="audio-hub-card" type="button" data-go="binaural">
+            <span class="audio-hub-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24"><path d="M3 12h2M7 7v10M11 4v16M15 8v8M19 11v2M21 12h-2" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+            </span>
+            <span class="audio-hub-card__name" data-i18n="audio_cat_binaural">Binaural</span>
+          </button>
+
+          <button class="audio-hub-card audio-hub-card--soon" type="button" data-go="sleep">
+            <span class="audio-hub-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" stroke="currentColor" stroke-width="1.9" fill="none" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="audio-hub-card__name" data-i18n="audio_cat_sleep">Sleep Sounds</span>
+            <span class="audio-hub-card__badge" data-i18n="badge_soon">Próximamente</span>
+          </button>
+
+          <button class="audio-hub-card audio-hub-card--soon" type="button" data-go="hipnosis">
+            <span class="audio-hub-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24"><circle cx="12" cy="12" r="2" fill="currentColor"/><path d="M12 9a3 3 0 1 1-3 3 5 5 0 0 1 5-5 7 7 0 0 1 7 7" stroke="currentColor" stroke-width="1.9" fill="none" stroke-linecap="round"/></svg>
+            </span>
+            <span class="audio-hub-card__name" data-i18n="audio_cat_hipnosis">Hipnosis</span>
+            <span class="audio-hub-card__badge" data-i18n="badge_soon">Próximamente</span>
+          </button>
+
+          <button class="audio-hub-card audio-hub-card--soon" type="button" data-go="visualizacion">
+            <span class="audio-hub-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z" stroke="currentColor" stroke-width="1.9" fill="none" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.9" fill="none"/></svg>
+            </span>
+            <span class="audio-hub-card__name" data-i18n="audio_cat_visualizacion">Visualización guiada</span>
+            <span class="audio-hub-card__badge" data-i18n="badge_soon">Próximamente</span>
+          </button>
+
+          <button class="audio-hub-card audio-hub-card--soon" type="button" data-go="meditacion">
+            <span class="audio-hub-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24"><circle cx="12" cy="6.5" r="2.5" stroke="currentColor" stroke-width="1.9" fill="none"/><path d="M4 19c1.8-4 4.8-5.5 8-5.5s6.2 1.5 8 5.5M12 14v-2.5" stroke="currentColor" stroke-width="1.9" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="audio-hub-card__name" data-i18n="audio_cat_meditacion">Meditación</span>
+            <span class="audio-hub-card__badge" data-i18n="badge_soon">Próximamente</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- ========== BINAURAL ========== -->
+      <section class="view view--binaural" id="view-binaural" role="tabpanel" aria-labelledby="tab-audios" hidden>
+        <div class="section-head section-head--sub">
+          <button class="section-back" type="button" data-back aria-label="Volver">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span data-i18n="back">Volver</span>
+          </button>
           <h2 data-i18n="binaural_title">Programas Binaurales</h2>
           <p class="muted" data-i18n="binaural_sub">Usa audífonos estéreo para el efecto óptimo.</p>
         </div>
@@ -116,14 +176,37 @@
         </div>
       </section>
 
-      <!-- ========== AUDIOS TAB ========== -->
-      <section class="view view--audios" id="view-audios" role="tabpanel" aria-labelledby="tab-audios" hidden>
-        <div class="section-head">
+      <!-- ========== AFIRMACIONES ========== -->
+      <section class="view view--audios" id="view-afirmaciones" role="tabpanel" aria-labelledby="tab-audios" hidden>
+        <div class="section-head section-head--sub">
+          <button class="section-back" type="button" data-back aria-label="Volver">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span data-i18n="back">Volver</span>
+          </button>
           <h2 data-i18n="audios_title">Audios de afirmaciones</h2>
           <p class="muted" data-i18n="audios_sub">Elige una pista para comenzar.</p>
         </div>
 
         <ul class="track-list" id="trackList"></ul>
+      </section>
+
+      <!-- ========== PRÓXIMAMENTE (placeholder) ========== -->
+      <section class="view view--soon" id="view-soon" role="tabpanel" aria-labelledby="tab-audios" hidden>
+        <div class="section-head section-head--sub">
+          <button class="section-back" type="button" data-back aria-label="Volver">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span data-i18n="back">Volver</span>
+          </button>
+          <h2 id="soonTitle">—</h2>
+        </div>
+
+        <div class="card soon-card">
+          <span class="soon-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="34" height="34"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M12 7.5V12l3 2" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <span class="chip chip--gold" data-i18n="badge_soon">Próximamente</span>
+          <p class="muted" data-i18n="soon_sub">Esta sección estará disponible muy pronto.</p>
+        </div>
       </section>
 
       <!-- ========== COURSES TAB ========== -->
@@ -848,13 +931,7 @@
 
     <!-- ============ BOTTOM TABS ============ -->
     <nav class="tabs" role="tablist" aria-label="Navegación principal">
-      <button class="tab is-active" id="tab-binaural" role="tab" aria-controls="view-binaural" aria-selected="true" data-view="binaural" type="button">
-        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-          <path d="M3 12h2M7 7v10M11 4v16M15 8v8M19 11v2M21 12h-2" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
-        </svg>
-        <span data-i18n="tab_binaural">Binaural</span>
-      </button>
-      <button class="tab" id="tab-audios" role="tab" aria-controls="view-audios" aria-selected="false" data-view="audios" type="button">
+      <button class="tab is-active" id="tab-audios" role="tab" aria-controls="view-audios-hub" aria-selected="true" data-view="audios" type="button">
         <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
           <path d="M4 14v-2a8 8 0 0 1 16 0v2M4 14a2 2 0 0 1 2-2h1v6H6a2 2 0 0 1-2-2v-2zm16 0a2 2 0 0 0-2-2h-1v6h1a2 2 0 0 0 2-2v-2z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/>
         </svg>
