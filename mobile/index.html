@@ -45,56 +45,95 @@
 
       <!-- ========== AUDIOS HUB (6 categorías) ========== -->
       <section class="view view--audios-hub is-active" id="view-audios-hub" role="tabpanel" aria-labelledby="tab-audios">
-        <div class="section-head">
-          <h2 data-i18n="audios_hub_title">Audios</h2>
-          <p class="muted" data-i18n="audios_hub_sub">Elige una categoría.</p>
+        <div class="section-head section-head--audios">
+          <img class="section-head__logo" src="icons/Logot_Reset_Order.png" alt="" aria-hidden="true" />
+          <div class="section-head__text">
+            <h2 data-i18n="audios_hub_title">Audios</h2>
+            <p class="muted" data-i18n="audios_hub_sub">Explora tus sesiones</p>
+          </div>
         </div>
 
         <div class="audio-hub-grid" role="group" aria-label="Categorías de audio">
           <button class="audio-hub-card" type="button" data-go="afirmaciones">
             <span class="audio-hub-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="24" height="24"><path d="M9 18V5l12-2v13" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6" cy="18" r="3" stroke="currentColor" stroke-width="2" fill="none"/><circle cx="18" cy="16" r="3" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+              <svg viewBox="0 0 24 24" width="26" height="26"><path d="M9 18V5l12-2v13" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6" cy="18" r="3" stroke="currentColor" stroke-width="2" fill="none"/><circle cx="18" cy="16" r="3" stroke="currentColor" stroke-width="2" fill="none"/></svg>
             </span>
-            <span class="audio-hub-card__name" data-i18n="audio_cat_afirmaciones">Afirmaciones</span>
+            <span class="audio-hub-card__body">
+              <span class="audio-hub-card__name" data-i18n="audio_cat_afirmaciones">Afirmaciones</span>
+              <span class="audio-hub-card__desc" data-i18n="audio_cat_afirmaciones_desc">Afirmaciones positivas para reprogramar tu mente y atraer tu mejor versión.</span>
+            </span>
+            <span class="audio-hub-card__chevron" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
           </button>
 
           <button class="audio-hub-card" type="button" data-go="binaural">
             <span class="audio-hub-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="24" height="24"><path d="M3 12h2M7 7v10M11 4v16M15 8v8M19 11v2M21 12h-2" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+              <svg viewBox="0 0 24 24" width="26" height="26"><path d="M3 12h2M7 7v10M11 4v16M15 8v8M19 11v2M21 12h-2" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
             </span>
-            <span class="audio-hub-card__name" data-i18n="audio_cat_binaural">Binaural</span>
+            <span class="audio-hub-card__body">
+              <span class="audio-hub-card__name" data-i18n="audio_cat_binaural">Binaural</span>
+              <span class="audio-hub-card__desc" data-i18n="audio_cat_binaural_desc">Frecuencias binaurales para potenciar enfoque, calma y claridad mental.</span>
+            </span>
+            <span class="audio-hub-card__chevron" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
           </button>
 
           <button class="audio-hub-card audio-hub-card--soon" type="button" data-go="sleep">
             <span class="audio-hub-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="24" height="24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" stroke="currentColor" stroke-width="1.9" fill="none" stroke-linejoin="round"/></svg>
+              <svg viewBox="0 0 24 24" width="26" height="26"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" stroke="currentColor" stroke-width="1.9" fill="none" stroke-linejoin="round"/></svg>
             </span>
-            <span class="audio-hub-card__name" data-i18n="audio_cat_sleep">Sleep Sounds</span>
+            <span class="audio-hub-card__body">
+              <span class="audio-hub-card__name" data-i18n="audio_cat_sleep">Sleep Sounds</span>
+              <span class="audio-hub-card__desc" data-i18n="audio_cat_sleep_desc">Sonidos relajantes para ayudarte a dormir profundo y reparador.</span>
+            </span>
             <span class="audio-hub-card__badge" data-i18n="badge_soon">Próximamente</span>
+            <span class="audio-hub-card__chevron" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
           </button>
 
           <button class="audio-hub-card audio-hub-card--soon" type="button" data-go="hipnosis">
             <span class="audio-hub-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="24" height="24"><circle cx="12" cy="12" r="2" fill="currentColor"/><path d="M12 9a3 3 0 1 1-3 3 5 5 0 0 1 5-5 7 7 0 0 1 7 7" stroke="currentColor" stroke-width="1.9" fill="none" stroke-linecap="round"/></svg>
+              <svg viewBox="0 0 24 24" width="26" height="26"><circle cx="12" cy="12" r="2" fill="currentColor"/><path d="M12 9a3 3 0 1 1-3 3 5 5 0 0 1 5-5 7 7 0 0 1 7 7" stroke="currentColor" stroke-width="1.9" fill="none" stroke-linecap="round"/></svg>
             </span>
-            <span class="audio-hub-card__name" data-i18n="audio_cat_hipnosis">Hipnosis</span>
+            <span class="audio-hub-card__body">
+              <span class="audio-hub-card__name" data-i18n="audio_cat_hipnosis">Hipnosis</span>
+              <span class="audio-hub-card__desc" data-i18n="audio_cat_hipnosis_desc">Hipnosis guiada para liberar bloqueos y crear cambios profundos.</span>
+            </span>
             <span class="audio-hub-card__badge" data-i18n="badge_soon">Próximamente</span>
+            <span class="audio-hub-card__chevron" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
           </button>
 
           <button class="audio-hub-card audio-hub-card--soon" type="button" data-go="visualizacion">
             <span class="audio-hub-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="24" height="24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z" stroke="currentColor" stroke-width="1.9" fill="none" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.9" fill="none"/></svg>
+              <svg viewBox="0 0 24 24" width="26" height="26"><path d="M12 4c2.2 2 2.2 4.4 0 6.4-2.2-2-2.2-4.4 0-6.4z" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linejoin="round"/><path d="M5.2 8.6c2.9.5 4.2 2.5 3.9 5.4-2.9-.5-4.2-2.5-3.9-5.4zM18.8 8.6c.3 2.9-1 4.9-3.9 5.4-.3-2.9 1-4.9 3.9-5.4z" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linejoin="round"/><path d="M5 15c2 2 4.4 3 7 3s5-1 7-3" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg>
             </span>
-            <span class="audio-hub-card__name" data-i18n="audio_cat_visualizacion">Visualización guiada</span>
+            <span class="audio-hub-card__body">
+              <span class="audio-hub-card__name" data-i18n="audio_cat_visualizacion">Visualización guiada</span>
+              <span class="audio-hub-card__desc" data-i18n="audio_cat_visualizacion_desc">Visualizaciones guiadas para manifestar tus metas y vivir en plenitud.</span>
+            </span>
             <span class="audio-hub-card__badge" data-i18n="badge_soon">Próximamente</span>
+            <span class="audio-hub-card__chevron" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
           </button>
 
           <button class="audio-hub-card audio-hub-card--soon" type="button" data-go="meditacion">
             <span class="audio-hub-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="24" height="24"><circle cx="12" cy="6.5" r="2.5" stroke="currentColor" stroke-width="1.9" fill="none"/><path d="M4 19c1.8-4 4.8-5.5 8-5.5s6.2 1.5 8 5.5M12 14v-2.5" stroke="currentColor" stroke-width="1.9" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg viewBox="0 0 24 24" width="26" height="26"><circle cx="12" cy="6.5" r="2.5" stroke="currentColor" stroke-width="1.9" fill="none"/><path d="M4 19c1.8-4 4.8-5.5 8-5.5s6.2 1.5 8 5.5M12 14v-2.5" stroke="currentColor" stroke-width="1.9" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
-            <span class="audio-hub-card__name" data-i18n="audio_cat_meditacion">Meditación</span>
+            <span class="audio-hub-card__body">
+              <span class="audio-hub-card__name" data-i18n="audio_cat_meditacion">Meditación</span>
+              <span class="audio-hub-card__desc" data-i18n="audio_cat_meditacion_desc">Meditaciones para cultivar paz interior, presencia y bienestar.</span>
+            </span>
             <span class="audio-hub-card__badge" data-i18n="badge_soon">Próximamente</span>
+            <span class="audio-hub-card__chevron" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
           </button>
         </div>
       </section>
