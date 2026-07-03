@@ -35,7 +35,7 @@
     {
       id: 'master-ai',
       label: 'Master AI',
-      href: '/master-ai',
+      href: 'https://reset-ai.netlify.app',
       match: function (p) { return p.indexOf('/master-ai') === 0; },
       svg: '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 3l1.6 3.4L17 8l-3.4 1.6L12 13l-1.6-3.4L7 8l3.4-1.6L12 3z" fill="currentColor"/><path d="M19 13l.9 1.9L22 16l-2.1.9L19 19l-.9-2.1L16 16l2.1-1.1L19 13z" fill="currentColor"/><path d="M6 16l.7 1.5L8 18l-1.3.6L6 20l-.7-1.4L4 18l1.3-.5L6 16z" fill="currentColor"/></svg>'
     },
