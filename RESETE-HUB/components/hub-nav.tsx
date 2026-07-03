@@ -48,6 +48,14 @@ export async function HubNav() {
           <Link className="nav-link" href="/hub/challenges">Retos</Link>
           <Link className="nav-link" href="/hub/events">Eventos</Link>
           <Link className="nav-link" href="/hub/notifications">Avisos</Link>
+          <a
+            className="nav-link"
+            href="https://reset-ai.netlify.app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Coach <span className="brand-accent-text">IA</span>
+          </a>
           <details className="nav-more">
             <summary className="nav-link">Más ▾</summary>
             <div className="nav-more__panel">
